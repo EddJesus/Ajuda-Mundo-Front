@@ -4,9 +4,9 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 
-import "./EditOng.styles.css";
+import "./EditUser.styles.css";
 
-export const EditOng = (): React.ReactElement => {
+export const EditUser = (): React.ReactElement => {
   return (
     <>
       <ul>
@@ -24,7 +24,7 @@ export const EditOng = (): React.ReactElement => {
       <body>
         <div className="row">
           <div className="card green">
-            <h2>Editar perfil ONG</h2>
+            <h2>Editar perfil </h2>
             <form className="form">
               <label>Nome</label>
               <TextField
