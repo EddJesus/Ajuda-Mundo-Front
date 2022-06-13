@@ -17,6 +17,10 @@ export const User = (): React.ReactElement => {
           </a>
         </li>
       </ul>
+      <div className="center"> <img
+        src="http://aamae.org.br/wp-content/uploads/2020/01/ong-voluntari.jpg"
+        alt=""
+      /></div>
       <body>
         <div className="row">
           <div className="card green">

@@ -11,7 +11,7 @@ import { AtividadeUser } from "./pages/User/atividadeUser/atividadeUser";
 import { EditUser } from "./pages/User/atividadeUser/EditUser";
 
 function App() {
-  return <Routing />;
+  return <Ong />;
 }
 
 export default App;
