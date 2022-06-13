@@ -1,33 +1,31 @@
-import * as React from 'react';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import * as React from "react";
+import Menu from "@material-ui/core/Menu";
+import MenuItem from "@material-ui/core/MenuItem";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
-import './EditOng.styles.css'
+import "./EditOng.styles.css";
 
-
-
-
-
-
-
-export const EditOng = (): ReactElement => {
+export const EditOng = (): React.ReactElement => {
   return (
     <>
       <ul>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Conta</a>
+        <li className="dropdown">
+          <a href="javascript:void(0)" className="dropbtn">
+            Conta
+          </a>
         </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Atividades</a>
+        <li className="dropdown">
+          <a href="javascript:void(0)" className="dropbtn">
+            Atividades
+          </a>
         </li>
       </ul>
       <body>
-        <div class="row">
-          <div class="card green">
+        <div className="row">
+          <div className="card green">
             <h2>Editar perfil</h2>
-            <form class="form">
+            <form className="form">
               <label>Nome</label>
               <TextField
                 margin="normal"
@@ -64,14 +62,12 @@ export const EditOng = (): ReactElement => {
                 autoComplete="current-password"
               />
 
-
-
               <br></br>
             </form>
-            <button class="btn" >Salvar</button>
+            <button className="btn">Salvar</button>
           </div>
         </div>
       </body>
     </>
-  )
-}
+  );
+};

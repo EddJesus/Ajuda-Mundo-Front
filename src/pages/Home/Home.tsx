@@ -1,28 +1,17 @@
-import * as React from 'react';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Container from '@mui/material/Container';
-import Grid from '@mui/material/Grid';
-import Link from '@mui/material/Link';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import CssBaseline from '@mui/material/CssBaseline';
+import * as React from "react";
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
+import Link from "@mui/material/Link";
 
-
-
-import './Home.styles.css'
-
-
+import "./Home.styles.css";
 
 export const Home = (): React.ReactElement => {
   return (
     <>
-      <Container className='cont' component="main" maxWidth="xs">
+      <Container className="cont" component="main" maxWidth="xs">
         Acesso Usuário
         {/* @ts-ignore */}
         <Box component="form" noValidate sx={{ mt: 1 }}>
@@ -47,9 +36,7 @@ export const Home = (): React.ReactElement => {
             autoComplete="current-password"
           />
         </Box>
-        <Button>
-          Sign In
-        </Button>
+        <Button>Sign In</Button>
         <Grid container>
           <Grid item xs>
             <Link href="#" variant="body2">
@@ -64,5 +51,5 @@ export const Home = (): React.ReactElement => {
         </Grid>
       </Container>
     </>
-  )
-}
+  );
+};

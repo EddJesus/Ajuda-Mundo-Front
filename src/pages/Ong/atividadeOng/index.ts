@@ -1,1 +1,1 @@
-export * from './Ong'
+export * from "./atividadeOng";

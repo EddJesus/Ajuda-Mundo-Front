@@ -1,42 +1,34 @@
-import * as React from 'react';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
+import * as React from "react";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Button from "@material-ui/core/Button";
 
-import './atividadeUser.styles.css'
+import "./atividadeUser.styles.css";
 
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-  return { name, calories, fat, carbs, protein };
-}
+const rows = [{ name: "name", calories: 10, fat: 10, carbs: 10, protein: 10 }];
 
-const rows = [
-  createData('Economia para crianças')
-
-];
-
-export const AtividadeUser = (): ReactElement => {
+export const AtividadeUser = (): React.ReactElement => {
   return (
     <>
       <ul>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Conta</a>
-
+        <li className="dropdown">
+          <a href="javascript:void(0)" className="dropbtn">
+            Conta
+          </a>
         </li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropbtn">Atividades</a>
-
+        <li className="dropdown">
+          <a href="javascript:void(0)" className="dropbtn">
+            Atividades
+          </a>
         </li>
       </ul>
-      <center><h2>DashBoard Atividades</h2></center>
-      <div class="container">
+      <div style={{ width: "100%", textAlign: "center" }}>
+        <h2>DashBoard Atividades</h2>
+      </div>
+      <div className="container">
         <div>
           <Table size="medium">
             <TableHead>
@@ -45,7 +37,6 @@ export const AtividadeUser = (): ReactElement => {
                 <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
                 <TableCell align="right"></TableCell>
-
               </TableRow>
             </TableHead>
             <TableBody>
@@ -68,5 +59,5 @@ export const AtividadeUser = (): ReactElement => {
         </Button>
       </div>
     </>
-  )
-}
+  );
+};
