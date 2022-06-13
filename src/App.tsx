@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Routing } from "./routes/index";
 import { Home, Ong, User } from "./pages";
 import "./App.css";
 import { EditOng } from "./pages/Ong/editOng/EditOng";
@@ -10,7 +11,7 @@ import { AtividadeUser } from "./pages/User/atividadeUser/atividadeUser";
 import { EditUser } from "./pages/User/atividadeUser/EditUser";
 
 function App() {
-  return <Ong />;
+  return <Routing />;
 }
 
 export default App;

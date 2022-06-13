@@ -18,6 +18,10 @@ export const Ong = (): React.ReactElement => {
         </li>
       </ul>
       <body>
+        <img
+          src="http://aamae.org.br/wp-content/uploads/2020/01/ong-voluntari.jpg"
+          alt=""
+        />
         <div className="row">
           <div className="card green">
             <h2>Editar perfil</h2>
