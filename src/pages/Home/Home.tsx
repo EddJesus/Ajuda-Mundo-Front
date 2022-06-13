@@ -19,11 +19,12 @@ import './Home.styles.css'
 
 
 
-export const Home = (): ReactElement => {
+export const Home = (): React.ReactElement => {
   return (
     <>
       <Container className='cont' component="main" maxWidth="xs">
         Acesso Usuário
+        {/* @ts-ignore */}
         <Box component="form" noValidate sx={{ mt: 1 }}>
           <TextField
             margin="normal"
