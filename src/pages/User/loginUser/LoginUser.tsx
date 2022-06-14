@@ -109,7 +109,6 @@ export const LoginUser = (): React.ReactElement => {
           </Grid>
         </Grid>
       </Container>
-      )
     </>
   );
 };
