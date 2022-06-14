@@ -6,13 +6,18 @@
 }
 
 .header {
-  background-color: blue;
+  background-color: #4895FF;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100px;
   max-width: 100%;
   color: black;
+}
+
+.header img {
+  margin-top: 60px;
+
 }
 
 .card {

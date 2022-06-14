@@ -11,6 +11,11 @@ import "./Home.styles.css";
 export const Home = (): React.ReactElement => {
   return (
     <>
+      <div className="header">
+        <img src="https://i.pinimg.com/originals/de/88/2e/de882e3f23b4b26a679af07341bbadb1.jpg"
+          alt=""
+        />
+      </div>
       <Container className="cont" component="main" maxWidth="xs">
         Acesso Usuário
         {/* @ts-ignore */}
@@ -50,6 +55,8 @@ export const Home = (): React.ReactElement => {
           </Grid>
         </Grid>
       </Container>
+
+
     </>
   );
 };

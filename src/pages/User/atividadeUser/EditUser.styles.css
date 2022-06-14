@@ -3,7 +3,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #4895FF;
 }
 
 li {
@@ -16,6 +16,18 @@ li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+}
+
+img {
+  width: 170px;
+  height: 150px;
+  border-radius: 50%;
+  border: 2px solid #4895FF;
+  margin-top: 50px;
+}
+
+.center {
+  text-align: center;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -44,6 +56,7 @@ li.dropdown {
   text-align: left;
 }
 
+
 .dropdown-content a:hover {
   background-color: #f1f1f1;
 }
@@ -61,6 +74,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .label {}

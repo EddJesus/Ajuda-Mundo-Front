@@ -3,7 +3,10 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+}
+
+.ulheader {
+  background-color: #4895FF;
 }
 
 li {
@@ -20,18 +23,20 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-  background-color: #111;
+  background-color: #FADE7D;
 }
 
 li.dropdown {
   display: inline-block;
+  background-color: #4895FF;
 }
 
 img {
-  width: 150px;
+  width: 170px;
   height: 150px;
   border-radius: 50%;
-  border: 5px solid grey;
+  border: 2px solid #4895FF;
+  margin-top: 50px;
 }
 
 .center {

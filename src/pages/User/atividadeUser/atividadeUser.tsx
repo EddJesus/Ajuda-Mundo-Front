@@ -28,6 +28,10 @@ export const AtividadeUser = (): React.ReactElement => {
       <div style={{ width: "100%", textAlign: "center" }}>
         <h2>DashBoard Atividades</h2>
       </div>
+      <div className="center"> <img
+        src="https://i.pinimg.com/originals/de/88/2e/de882e3f23b4b26a679af07341bbadb1.jpg"
+        alt=""
+      /></div>
       <div className="container">
         <div>
           <Table size="medium">
@@ -54,9 +58,6 @@ export const AtividadeUser = (): React.ReactElement => {
           </Table>
         </div>
         <br></br>
-        <Button className="btn" variant="contained" color="primary">
-          Adicionar Atividade
-        </Button>
       </div>
     </>
   );
