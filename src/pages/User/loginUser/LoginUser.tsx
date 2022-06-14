@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
@@ -6,13 +7,13 @@ import {
   loginPending,
   loginFail,
   loginSuccess,
-} from "../../store/login/Login.store";
+} from "../../../store/login/Login.store";
 
-import { getUserProfile } from "../../store/user/User.actions";
+import { getUserProfile } from "../../../store/user/User.actions";
 
-import { RootState } from "../../store";
+import { RootState } from "../../../store";
 
-import { UserAPI } from "../../api";
+import { UserAPI } from "../../../api";
 
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -21,10 +22,10 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 
-import "./Home.styles.css";
+import "./LoginUser.styles.css";
 import { CircularProgress } from "@mui/material";
 
-export const Home = (): React.ReactElement => {
+export const LoginUser = (): React.ReactElement => {
   const dispatch = useDispatch();
 
   const loginState = useSelector((state: RootState) => state.login);
@@ -101,15 +102,10 @@ export const Home = (): React.ReactElement => {
           )}
         </Box>
         <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid>
           <Grid item>
-            <Link href="#" variant="body2">
+            <Button onClick={() => Navigate({ to: "/" })}>
               {"Don't have an account? Sign Up"}
-            </Link>
+            </Button>
           </Grid>
         </Grid>
       </Container>

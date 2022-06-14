@@ -1,18 +1,8 @@
 import * as React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
-import {
-  loginPending,
-  loginFail,
-  loginSuccess,
-} from "../../store/login/Login.store";
-
-import { getUserProfile } from "../../store/user/User.actions";
-
-import { RootState } from "../../store";
-
-import { UserAPI } from "../../api";
+import { UserAPI } from "../../../api";
 
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
@@ -21,34 +11,26 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 
-import "./Home.styles.css";
+import "./RegisterUser.styles.css";
 import { CircularProgress } from "@mui/material";
 
-export const Home = (): React.ReactElement => {
-  const dispatch = useDispatch();
-
-  const loginState = useSelector((state: RootState) => state.login);
-  const userState = useSelector((state: RootState) => state.user);
+export const RegisterUser = (): React.ReactElement => {
+  const [loading, setLoading] = React.useState(false);
 
   const { register, handleSubmit } = useForm();
   const userApi = new UserAPI();
 
-  const login = async (form: any) => {
+  const registerUser = async (form: any) => {
     try {
-      dispatch(loginPending());
-      const data = await userApi.login(form);
+      setLoading(true);
 
-      const { token } = data;
+      const data = await userApi.registerUser(form);
 
-      localStorage.setItem("access-token", `Bearer ${token}`);
+      window.alert("usuario cadastrado");
+      window.alert(data.result.name);
 
-      dispatch(loginSuccess());
-      // @ts-ignore
-      dispatch(getUserProfile());
-      console.log(data);
-      console.log(userState.user);
+      setLoading(false);
     } catch (error) {
-      dispatch(loginFail("Erro ao realizar login"));
       console.log(error);
       window.alert("Erro ao realizar login");
     }
@@ -57,8 +39,22 @@ export const Home = (): React.ReactElement => {
   return (
     <>
       <Container className="cont" component="main" maxWidth="xs">
-        Acesso Usuário
-        <Box component="form" sx={{ mt: 1 }} onSubmit={handleSubmit(login)}>
+        Criar novo usuário
+        <Box
+          component="form"
+          sx={{ mt: 1 }}
+          onSubmit={handleSubmit(registerUser)}
+        >
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="name"
+            label="Name"
+            autoComplete="name"
+            autoFocus
+            {...register("name")}
+          />
           <TextField
             margin="normal"
             required
@@ -79,7 +75,7 @@ export const Home = (): React.ReactElement => {
             autoComplete="current-password"
             {...register("password")}
           />
-          {loginState.isLoading ? (
+          {loading ? (
             <div
               style={{ textAlign: "center", marginTop: 10, marginBottom: 10 }}
             >
@@ -101,14 +97,9 @@ export const Home = (): React.ReactElement => {
           )}
         </Box>
         <Grid container>
-          <Grid item xs>
-            <Link href="#" variant="body2">
-              Forgot password?
-            </Link>
-          </Grid>
           <Grid item>
-            <Link href="#" variant="body2">
-              {"Don't have an account? Sign Up"}
+            <Link onClick={() => Navigate({ to: "/" })}>
+              {"Have an account? Sign in"}
             </Link>
           </Grid>
         </Grid>

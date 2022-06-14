@@ -1,5 +1,4 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import {
   Home,
@@ -8,18 +7,39 @@ import {
   AtividadeOng,
   EditAtividadeOng,
   CreateAtividadeOng,
+  LoginUser,
+  RegisterUser,
 } from "../pages";
+import { RootState } from "../store";
+
+import { useSelector } from "react-redux";
+import {
+  Route,
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+} from "react-router-dom";
 
 const Routing = () => {
+  const { isAuth } = useSelector((state: RootState) => state.login);
+  const { user } = useSelector((state: RootState) => state.user);
+
+  const authenticated = isAuth === true && user.email !== "";
+
+  console.log(authenticated);
+
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/ong" element={<Ong />} />
-        <Route path="/user" element={<User />} />
-        <Route path="/create-activity" element={<CreateAtividadeOng />} />
-        <Route path="/update-activity" element={<EditAtividadeOng />} />
-      </Routes>
+      {authenticated ? (
+        <Routes>
+          <Route path="/" element={<User />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/" element={<LoginUser />} />
+          <Route path="/register-user" element={<RegisterUser />} />
+        </Routes>
+      )}
     </Router>
   );
 };
