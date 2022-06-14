@@ -18,10 +18,13 @@ export const Ong = (): React.ReactElement => {
         </li>
       </ul>
       <body>
-        <div className="center"> <img
-          src="http://aamae.org.br/wp-content/uploads/2020/01/ong-voluntari.jpg"
-          alt=""
-        /></div>
+        <div className="center">
+          {" "}
+          <img
+            src="http://aamae.org.br/wp-content/uploads/2020/01/ong-voluntari.jpg"
+            alt=""
+          />
+        </div>
         <div className="row">
           <div className="card green">
             <h2>Editar perfil ONG</h2>
@@ -31,7 +34,7 @@ export const Ong = (): React.ReactElement => {
 
           <div className="card blue">
             <h2>Atividade</h2>
-            <p>Veja suas aividade</p>
+            <p>Veja suas atividades</p>
             <button className="btn">Verificar</button>
           </div>
         </div>

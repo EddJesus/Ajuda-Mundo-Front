@@ -17,10 +17,13 @@ export const User = (): React.ReactElement => {
           </a>
         </li>
       </ul>
-      <div className="center"> <img
-        src="http://aamae.org.br/wp-content/uploads/2020/01/ong-voluntari.jpg"
-        alt=""
-      /></div>
+      <div className="center">
+        {" "}
+        <img
+          src="http://aamae.org.br/wp-content/uploads/2020/01/ong-voluntari.jpg"
+          alt=""
+        />
+      </div>
       <body>
         <div className="row">
           <div className="card green">
@@ -31,7 +34,7 @@ export const User = (): React.ReactElement => {
 
           <div className="card blue">
             <h2>Atividade</h2>
-            <p>Veja suas aividade</p>
+            <p>Veja suas atividades</p>
             <button className="btn">Verificar</button>
           </div>
         </div>

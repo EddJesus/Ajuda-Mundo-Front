@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 
@@ -27,6 +27,8 @@ import { CircularProgress } from "@mui/material";
 
 export const LoginUser = (): React.ReactElement => {
   const dispatch = useDispatch();
+
+  const navigate = useNavigate();
 
   const loginState = useSelector((state: RootState) => state.login);
   const userState = useSelector((state: RootState) => state.user);
@@ -103,7 +105,7 @@ export const LoginUser = (): React.ReactElement => {
         </Box>
         <Grid container>
           <Grid item>
-            <Button onClick={() => Navigate({ to: "/" })}>
+            <Button onClick={() => navigate("/register-user")}>
               {"Don't have an account? Sign Up"}
             </Button>
           </Grid>

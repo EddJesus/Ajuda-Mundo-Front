@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 import { UserAPI } from "../../../api";
@@ -17,6 +17,8 @@ import { CircularProgress } from "@mui/material";
 export const RegisterUser = (): React.ReactElement => {
   const [loading, setLoading] = React.useState(false);
 
+  const navigate = useNavigate();
+
   const { register, handleSubmit } = useForm();
   const userApi = new UserAPI();
 
@@ -25,9 +27,6 @@ export const RegisterUser = (): React.ReactElement => {
       setLoading(true);
 
       const data = await userApi.registerUser(form);
-
-      window.alert("usuario cadastrado");
-      window.alert(data.result.name);
 
       setLoading(false);
     } catch (error) {
@@ -98,9 +97,9 @@ export const RegisterUser = (): React.ReactElement => {
         </Box>
         <Grid container>
           <Grid item>
-            <Link onClick={() => Navigate({ to: "/" })}>
+            <Button onClick={() => navigate("/")}>
               {"Have an account? Sign in"}
-            </Link>
+            </Button>
           </Grid>
         </Grid>
       </Container>
