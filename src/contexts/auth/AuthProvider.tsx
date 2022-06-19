@@ -11,6 +11,7 @@ type AuthProviderType = {
 
 export const AuthProvider = ({ children }: AuthProviderType) => {
   const [ong, setOng] = useState<OngType | null>(null)
+  const api = useApi()
 
   useEffect(() => {
     const token = localStorage.getItem('access-token')
@@ -20,14 +21,13 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
     }
   }, [])
 
-  const api = useApi()
-
   const getOngData = async (token: string) => {
     try {
       const ongData = await api.getOngData(token)
-      console.log('olha nossos dados ai', ongData)
       setOng(ongData)
     } catch (error) {
+      console.log(error)
+      window.alert('Ocorre um erro ao pegar dados da ong')
       localStorage.removeItem('access-token')
     }
   }
@@ -36,11 +36,9 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
     try {
       const { token } = await api.signIn(email, password)
       if (token) {
-        window.alert('ong logada')
         const ongData = await api.getOngData(token)
 
         if (ongData) {
-          window.alert('dados da ong encontrados')
           console.log(ongData)
           setOng(ongData.ong)
           setTokenOnLocalStorage(token)

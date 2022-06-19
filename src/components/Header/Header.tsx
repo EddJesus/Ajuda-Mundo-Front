@@ -37,7 +37,10 @@ export const Header = ({
     const firstLetterFormated = tabName.substring(0, 1).toLocaleUpperCase()
     const restOfTabName = tabName.substring(1)
 
-    const formatedTabName = `${firstLetterFormated}${restOfTabName}`
+    const formatedTabName = `${firstLetterFormated}${restOfTabName}`.replace(
+      '-',
+      ' ',
+    )
 
     return formatedTabName
   }

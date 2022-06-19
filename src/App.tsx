@@ -3,13 +3,15 @@ import React from 'react'
 import GlobalStyles from './styles/GlobalStyles'
 
 import { Routing } from './routes/index'
-import { AuthProvider } from './contexts'
+import { AuthProvider, ActivityProvider } from './contexts'
 
 function App() {
   return (
     <>
       <AuthProvider>
-        <Routing />
+        <ActivityProvider>
+          <Routing />
+        </ActivityProvider>
       </AuthProvider>
       <GlobalStyles />
     </>

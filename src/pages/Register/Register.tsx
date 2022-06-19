@@ -25,7 +25,7 @@ export const Register = ({ children }: RegisterProps) => {
     if (loggedIn) {
       navigate('/home')
     } else {
-      window.alert('Erro ao realizar Register!')
+      window.alert('Erro ao realizar cadastro!')
     }
   }
 

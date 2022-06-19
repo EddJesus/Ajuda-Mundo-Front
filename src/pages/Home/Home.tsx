@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useContext, useEffect, useState } from 'react'
 
 import {
   Container,
@@ -15,88 +15,27 @@ import {
 import ImageIconActivity from '../../assets/imgs/icon_cadastrar_atividade.png'
 import ImageHero from '../../assets/imgs/icon_heroi.png'
 import { ActivityCard } from '../../components'
-import { ActivityType } from '../../types'
+import { ActivityContext } from '../../contexts'
+
+import { useNavigate } from 'react-router-dom'
+import { ActivityType } from '../../types/activity'
 
 interface HomeProps {
   children?: ReactNode
 }
 
-const activitiesMock = [
-  {
-    name: 'Atividade de ensinar crianças ingles',
-    points: 200,
-    description: 'Mandar video ensinando ingles para crianças',
-    mainImg:
-      'https://s2.glbimg.com/2pVJegHOBhTyxFSsBY02uKcByyI=/620x430/e.glbimg.com/og/ed/f/original/2012/10/05/dia_das_criancas.jpg',
-    status: 0,
-    ongId: 1,
-    userId: null,
-    realizationField: null,
-    activityId: 1,
-    createdAt: '2022-06-19T21:01:02.000Z',
-    updatedAt: '2022-06-19T21:01:02.000Z',
-  },
-  {
-    name: 'Atividade de ensinar crianças ingles',
-    points: 200,
-    description: 'Mandar video ensinando ingles para crianças',
-    mainImg:
-      'https://s2.glbimg.com/2pVJegHOBhTyxFSsBY02uKcByyI=/620x430/e.glbimg.com/og/ed/f/original/2012/10/05/dia_das_criancas.jpg',
-    status: 0,
-    ongId: 1,
-    userId: null,
-    realizationField: null,
-    activityId: 1,
-    createdAt: '2022-06-19T21:01:02.000Z',
-    updatedAt: '2022-06-19T21:01:02.000Z',
-  },
-  {
-    name: 'Atividade de ensinar crianças ingles',
-    points: 200,
-    description: 'Mandar video ensinando ingles para crianças',
-    mainImg:
-      'https://s2.glbimg.com/2pVJegHOBhTyxFSsBY02uKcByyI=/620x430/e.glbimg.com/og/ed/f/original/2012/10/05/dia_das_criancas.jpg',
-    status: 0,
-    ongId: 1,
-    userId: null,
-    realizationField: null,
-    activityId: 1,
-    createdAt: '2022-06-19T21:01:02.000Z',
-    updatedAt: '2022-06-19T21:01:02.000Z',
-  },
-  {
-    name: 'Atividade de ensinar crianças ingles',
-    points: 200,
-    description: 'Mandar video ensinando ingles para crianças',
-    mainImg:
-      'https://s2.glbimg.com/2pVJegHOBhTyxFSsBY02uKcByyI=/620x430/e.glbimg.com/og/ed/f/original/2012/10/05/dia_das_criancas.jpg',
-    status: 0,
-    ongId: 1,
-    userId: null,
-    realizationField: null,
-    activityId: 1,
-    createdAt: '2022-06-19T21:01:02.000Z',
-    updatedAt: '2022-06-19T21:01:02.000Z',
-  },
-  {
-    name: 'Atividade de ensinar crianças ingles',
-    points: 200,
-    description: 'Mandar video ensinando ingles para crianças',
-    mainImg:
-      'https://s2.glbimg.com/2pVJegHOBhTyxFSsBY02uKcByyI=/620x430/e.glbimg.com/og/ed/f/original/2012/10/05/dia_das_criancas.jpg',
-    status: 0,
-    ongId: 1,
-    userId: null,
-    realizationField: null,
-    activityId: 1,
-    createdAt: '2022-06-19T21:01:02.000Z',
-    updatedAt: '2022-06-19T21:01:02.000Z',
-  },
-]
-
-// const activitiesMock: ActivityType[] = []
-
 export const Home = ({ children }: HomeProps) => {
+  const [activities, setActivities] = useState<ActivityType[] | []>([])
+  const { getActivities } = useContext(ActivityContext)
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    ;(async () => {
+      const activities = await getActivities()
+
+      setActivities(activities)
+    })()
+  }, [])
   return (
     <Container>
       <WrapperLeft>
@@ -104,13 +43,13 @@ export const Home = ({ children }: HomeProps) => {
         <WrapperRegisterActivity>
           <IconRegisterActivity
             src={ImageIconActivity}
-            onClick={() => window.alert('teste')}
+            onClick={() => navigate('/criar-atividade')}
           />
         </WrapperRegisterActivity>
         <Indicator>Atividades cadastradas</Indicator>
-        {activitiesMock.length > 0 ? (
+        {activities.length > 0 ? (
           <WrapperActivities>
-            {activitiesMock.map((activity) => (
+            {activities.map((activity) => (
               <ActivityCard activity={activity} />
             ))}
           </WrapperActivities>

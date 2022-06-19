@@ -1,6 +1,13 @@
 import React, { useContext } from 'react'
 
-import { Login, Home, NotFound, Register, Account } from '../pages'
+import {
+  Login,
+  Home,
+  NotFound,
+  Register,
+  Account,
+  CreateActivity,
+} from '../pages'
 import { Header, Footer } from '../components'
 import { AuthContext, RequireAuth } from '../contexts'
 
@@ -35,6 +42,14 @@ const Routing = () => {
           element={
             <RequireAuth>
               <Account />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/criar-atividade"
+          element={
+            <RequireAuth>
+              <CreateActivity />
             </RequireAuth>
           }
         />
