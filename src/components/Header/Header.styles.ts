@@ -82,12 +82,13 @@ export const NavigationItem = styled.li`
 `
 
 export const RouteIndicator = styled.div`
-  width: 15%;
+  width: 300px;
+
   padding: 5px;
-  text-align: center;
-  font-weight: 700;
+  margin-top: 4%;
 
   background-color: #fade7d;
 
-  margin-top: 4%;
+  text-align: center;
+  font-weight: 700;
 `
