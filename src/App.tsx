@@ -3,15 +3,15 @@ import React from 'react'
 import GlobalStyles from './styles/GlobalStyles'
 
 import { Routing } from './routes/index'
-import { Header, Footer } from './components'
+import { AuthProvider } from './contexts'
 
 function App() {
   return (
     <>
-      <Header />
-      <Routing />
+      <AuthProvider>
+        <Routing />
+      </AuthProvider>
       <GlobalStyles />
-      <Footer />
     </>
   )
 }
