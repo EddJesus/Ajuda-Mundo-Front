@@ -1,15 +1,19 @@
-import React from "react";
-import { Provider } from "react-redux";
-import store from "./store";
-import { Routing } from "./routes/index";
-import "./App.css";
+import React from 'react'
+
+import GlobalStyles from './styles/GlobalStyles'
+
+import { Routing } from './routes/index'
+import { Header, Footer } from './components'
 
 function App() {
   return (
-    <Provider store={store}>
+    <>
+      <Header />
       <Routing />
-    </Provider>
-  );
+      <GlobalStyles />
+      <Footer />
+    </>
+  )
 }
 
-export default App;
+export default App
