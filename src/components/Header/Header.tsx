@@ -8,24 +8,61 @@ import {
   WrapperTitle,
   HeaderImage,
   LogoImage,
+  HeaderNavigation,
+  NavigationItem,
+  RouteIndicator,
 } from './Header.styles'
+
+import { useNavigate, useLocation } from 'react-router-dom'
 
 interface HeaderProps {
   children?: ReactNode
   headerImage?: string
+  loggedIn: boolean
+  tabs: string[]
 }
 
 export const Header = ({
   children,
   headerImage = DefaultHeaderImage,
+  loggedIn,
+  tabs,
 }: HeaderProps) => {
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const actualPage = location.pathname.substring(1)
+
+  const formatTabName = (tabName: string): string => {
+    const firstLetterFormated = tabName.substring(0, 1).toLocaleUpperCase()
+    const restOfTabName = tabName.substring(1)
+
+    const formatedTabName = `${firstLetterFormated}${restOfTabName}`
+
+    return formatedTabName
+  }
+
   return (
     <Container>
-      <WrapperTitle>
+      <WrapperTitle loggedIn={loggedIn}>
         <LogoImage src={Logo} />
         <h5>AjudaMundo</h5>
       </WrapperTitle>
-      <HeaderImage style={{ backgroundImage: `url(${headerImage})` }} />
+      {loggedIn && (
+        <HeaderNavigation>
+          {tabs.map((tab) => (
+            <NavigationItem onClick={() => navigate(tab)}>
+              {formatTabName(tab)}
+            </NavigationItem>
+          ))}
+        </HeaderNavigation>
+      )}
+
+      <HeaderImage style={{ backgroundImage: `url(${headerImage})` }}>
+        {loggedIn && (
+          <RouteIndicator>{formatTabName(actualPage)}</RouteIndicator>
+        )}
+      </HeaderImage>
       {children}
     </Container>
   )

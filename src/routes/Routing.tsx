@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { Login, Home, NotFound, Register } from '../pages'
+import { Login, Home, NotFound, Register, Account } from '../pages'
 import { Header, Footer } from '../components'
 import { AuthContext, RequireAuth } from '../contexts'
 
@@ -14,17 +14,27 @@ import {
 const Routing = () => {
   const { ong } = useContext(AuthContext)
 
+  const tabs = ['home', 'conta']
+
   return (
     <Router>
-      <Header />
+      <Header loggedIn={ong ? true : false} tabs={tabs} />
       <Routes>
         <Route path="/" element={ong ? <Navigate to={'/home'} /> : <Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/cadastro" element={<Register />} />
         <Route
           path="/home"
           element={
             <RequireAuth>
               <Home />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/conta"
+          element={
+            <RequireAuth>
+              <Account />
             </RequireAuth>
           }
         />
