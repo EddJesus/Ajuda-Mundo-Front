@@ -4,7 +4,7 @@ export const Container = styled.header`
   height: 45%;
   width: 100%;
 
-  background-color: black;
+  background-color: white;
 `
 
 export const WrapperTitle = styled.div`
@@ -28,7 +28,7 @@ export const LogoImage = styled.img`
 `
 
 export const HeaderImage = styled.div`
-  height: 100%;
+  height: 90%;
   width: 100%;
 
   background-size: cover;
