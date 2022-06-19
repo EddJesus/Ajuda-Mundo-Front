@@ -41,7 +41,7 @@ export const Login = ({ children }: LoginProps) => {
         />
         <Button type="submit">Entrar</Button>
         <h1>Ou</h1>
-        <Button>Cadastre-se</Button>
+        <Button onClick={() => navigate('/register')}>Cadastre-se</Button>
       </Form>
     </Container>
   )

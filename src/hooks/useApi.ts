@@ -20,4 +20,9 @@ export const useApi = () => ({
 
     return response.data
   },
+  signUp: async (ongName: string, email: string, password: string) => {
+    const response = await api.post('/ong', { name: ongName, email, password })
+
+    return response.data
+  },
 })

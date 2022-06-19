@@ -57,6 +57,27 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
     }
   }
 
+  const signUp = async (
+    ongName: string,
+    email: string,
+    password: string,
+  ): Promise<boolean> => {
+    try {
+      const { result } = await api.signUp(ongName, email, password)
+      if (result.ongId) {
+        window.alert('Ong criada com sucesso!')
+
+        await signIn(email, password)
+        return true
+      } else {
+        throw new Error('Erro ao se autenticar')
+      }
+    } catch (error) {
+      console.log(error)
+      return false
+    }
+  }
+
   const signOut = (): void => {
     setOng(null)
   }
@@ -66,7 +87,7 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
   }
 
   return (
-    <AuthContext.Provider value={{ ong, signIn, signOut }}>
+    <AuthContext.Provider value={{ ong, signIn, signOut, signUp }}>
       {children}
     </AuthContext.Provider>
   )

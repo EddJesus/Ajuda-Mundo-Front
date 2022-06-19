@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 
-import { Login, Home, NotFound } from '../pages'
+import { Login, Home, NotFound, Register } from '../pages'
 import { Header, Footer } from '../components'
 import { AuthContext, RequireAuth } from '../contexts'
 
@@ -19,6 +19,7 @@ const Routing = () => {
       <Header />
       <Routes>
         <Route path="/" element={ong ? <Navigate to={'/home'} /> : <Login />} />
+        <Route path="/register" element={<Register />} />
         <Route
           path="/home"
           element={
