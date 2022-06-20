@@ -53,8 +53,8 @@ export const Header = ({
       </WrapperTitle>
       {loggedIn && (
         <HeaderNavigation>
-          {tabs.map((tab) => (
-            <NavigationItem onClick={() => navigate(tab)}>
+          {tabs.map((tab, index) => (
+            <NavigationItem key={index} onClick={() => navigate(tab)}>
               {formatTabName(tab)}
             </NavigationItem>
           ))}

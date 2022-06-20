@@ -1,3 +1,12 @@
+export type UpdateActivityType = {
+  activityId: number
+  name: string
+  points: number
+  description: string
+  mainImg?: string
+  ongId: number
+}
+
 export type CreateActivityType = {
   name: string
   points: number

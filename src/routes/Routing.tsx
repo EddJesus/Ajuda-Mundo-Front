@@ -7,6 +7,7 @@ import {
   Register,
   Account,
   CreateActivity,
+  EditActivity,
 } from '../pages'
 import { Header, Footer } from '../components'
 import { AuthContext, RequireAuth } from '../contexts'
@@ -50,6 +51,14 @@ const Routing = () => {
           element={
             <RequireAuth>
               <CreateActivity />
+            </RequireAuth>
+          }
+        />
+        <Route
+          path="/editar-atividade/:id"
+          element={
+            <RequireAuth>
+              <EditActivity />
             </RequireAuth>
           }
         />

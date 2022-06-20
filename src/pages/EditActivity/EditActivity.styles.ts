@@ -101,9 +101,9 @@ export const Button = styled.button`
   font-size: 2.4rem;
 
   padding: 1rem 3rem;
-  margin: 5rem 0rem;
+  margin: 5rem 0rem 1rem 0rem;
 
-  background-color: #99eda7;
+  background-color: #f0c32c;
 
   :hover {
     opacity: 0.5;

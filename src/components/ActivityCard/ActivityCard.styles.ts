@@ -5,13 +5,24 @@ export const Container = styled.div`
   min-height: 250px;
   width: 30%;
   min-width: 250px;
+
+  :hover {
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 400ms;
+  }
 `
 
 export const WrapperActivityImage = styled.div`
   height: 85%;
   width: 100%;
 
-  background-color: green;
+  background-color: white;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 1px solid;
 `
 
 export const WrapperActivityName = styled.div`

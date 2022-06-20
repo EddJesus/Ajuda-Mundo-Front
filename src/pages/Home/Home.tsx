@@ -49,8 +49,8 @@ export const Home = ({ children }: HomeProps) => {
         <Indicator>Atividades cadastradas</Indicator>
         {activities.length > 0 ? (
           <WrapperActivities>
-            {activities.map((activity) => (
-              <ActivityCard activity={activity} />
+            {activities.map((activity, index) => (
+              <ActivityCard key={index} activity={activity} />
             ))}
           </WrapperActivities>
         ) : (

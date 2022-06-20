@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { CreateActivityType } from '../types/activity'
+import { CreateActivityType, UpdateActivityType } from '../types/activity'
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -27,7 +27,14 @@ export const useApi = () => ({
     return response.data
   },
   getActivities: async (token: string) => {
-    const response = await api.get('/activity', {
+    const response = await api.get('/activity/ong-activities', {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+
+    return response.data
+  },
+  getActivityById: async (token: string, activityId: number) => {
+    const response = await api.get(`/activity/${activityId}`, {
       headers: { Authorization: `Bearer ${token}` },
     })
 
@@ -50,5 +57,39 @@ export const useApi = () => ({
     )
 
     return response.data
+  },
+  updateActivity: async (token: string, fields: UpdateActivityType) => {
+    const { activityId, name, description, points, ongId, mainImg } = fields
+
+    const response = await api.patch(
+      `/activity/${activityId}`,
+      {
+        name,
+        points: Number(points),
+        description,
+        ongId,
+        mainImg,
+      },
+      {
+        headers: { Authorization: `Bearer ${token}` },
+      },
+    )
+
+    if (response.status !== 204) {
+      throw new Error('Erro ao editar atividade')
+    }
+
+    return true
+  },
+  deleteActivity: async (token: string, activityId: number) => {
+    const response = await api.delete(`/activity/${activityId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+
+    if (response.status !== 204) {
+      throw new Error('Erro ao editar atividade')
+    }
+
+    return true
   },
 })

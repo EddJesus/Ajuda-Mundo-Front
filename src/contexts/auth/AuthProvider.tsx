@@ -14,11 +14,13 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
   const api = useApi()
 
   useEffect(() => {
-    const token = localStorage.getItem('access-token')
+    ;(async () => {
+      const token = localStorage.getItem('access-token')
 
-    if (token) {
-      getOngData(token)
-    }
+      if (token) {
+        await getOngData(token)
+      }
+    })()
   }, [])
 
   const getOngData = async (token: string) => {
@@ -27,7 +29,6 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
       setOng(ongData)
     } catch (error) {
       console.log(error)
-      window.alert('Ocorre um erro ao pegar dados da ong')
       localStorage.removeItem('access-token')
     }
   }
