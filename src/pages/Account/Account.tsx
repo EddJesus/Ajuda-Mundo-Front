@@ -1,16 +1,40 @@
-import { ReactNode } from 'react'
+import { ReactNode, useContext } from 'react'
 
-import { Container } from './Account.styles'
+import DefaultProfileImage from '../../assets/imgs/default_profile_image.jpg'
+import { AuthContext } from '../../contexts'
 
-interface AccountProps {
-  children?: ReactNode
-}
+import {
+  Container,
+  WrapperProfileInfo,
+  ProfileImage,
+  LabelOngName,
+  LabelOngEmail,
+  ButtonLogout,
+} from './Account.styles'
 
-export const Account = ({ children }: AccountProps) => {
+export const Account = () => {
+  const { ong, signOut } = useContext(AuthContext)
+
+  if (!ong) {
+    return signOut()
+  }
+
   return (
     <Container>
-      <h1>Account</h1>
-      {children}
+      <WrapperProfileInfo>
+        <ProfileImage
+          style={{
+            backgroundImage: `url(${
+              ong.profileImg ? ong.profileImg : DefaultProfileImage
+            })`,
+          }}
+        />
+        <LabelOngName>{ong.name}</LabelOngName>
+        <LabelOngEmail>{ong.email}</LabelOngEmail>
+        <ButtonLogout type={'button'} onClick={() => signOut()}>
+          Sair da conta
+        </ButtonLogout>
+      </WrapperProfileInfo>
     </Container>
   )
 }

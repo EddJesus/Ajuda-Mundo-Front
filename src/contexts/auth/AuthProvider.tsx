@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: AuthProviderType) => {
   const getOngData = async (token: string) => {
     try {
       const ongData = await api.getOngData(token)
-      setOng(ongData)
+      setOng(ongData.ong)
     } catch (error) {
       console.log(error)
       localStorage.removeItem('access-token')
