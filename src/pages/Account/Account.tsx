@@ -16,7 +16,8 @@ export const Account = () => {
   const { ong, signOut } = useContext(AuthContext)
 
   if (!ong) {
-    return signOut()
+    signOut()
+    return <></> 
   }
 
   return (
