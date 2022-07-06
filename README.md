@@ -2,9 +2,8 @@
 repo name: Ajuda Mundo
 description: Project developed to improve my skills and create portfolio
 github name: EddJesus
-link: https://github.com/EddJesus/Ajuda-Mundo-API
-logo path: public/logo.png
-screenshot: public/ss.png
+link: https://github.com/EddJesus/Ajuda-Mundo-Front
+logo path: src/assets/imgs/logo.png
 twitter: https://twitter.com/EdJesuus
 email: edusanto22@gmail.com
 -->
@@ -13,7 +12,7 @@ email: edusanto22@gmail.com
 <br />
 <p align="center">
   <a href="https://github.com/EddJesus/Ajuda-Mundo-Front">
-    <img src="public/logo.png" alt="Logo" width="80" height="80">
+    <img src="src/assets/imgs/logo.png" alt="Logo" width="80" height="80">
   </a>
   <h2 align="center">
     Ajuda Mundo
@@ -21,9 +20,9 @@ email: edusanto22@gmail.com
     <p align="center">
       <a href="https://ajuda-mundo-front.vercel.app/">View Demo</a>
       �
-      <a href="https://github.com/EddJesus/Ajuda-Mundo-API/issues">Report Bug</a>
+      <a href="https://github.com/EddJesus/Ajuda-Mundo-Front/issues">Report Bug</a>
       �
-      <a href="https://github.com/EddJesus/Ajuda-Mundo-API/issues">Request Feature</a>
+      <a href="https://github.com/EddJesus/Ajuda-Mundo-Front/issues">Request Feature</a>
     </p>
 
 </p>
@@ -89,7 +88,7 @@ This is designed to have an incentive to normal user wants to solve the tasks th
 
 ### 1. Run
 ```
-git clone git@github.com:EddJesus/Ajuda-Mundo-API.git ajuda-mundo-api
+git clone git@github.com:EddJesus/Ajuda-Mundo-Front.git ajuda-mundo-front
 ```
 <br>
 
@@ -99,40 +98,18 @@ yarn install
 ```
 <br>
 
-### 3. create a ```.env``` using the ```.env.example``` and your own credentials
+### 3. create a ```.env``` using the ```.env.example``` and set the 'VITE_API_BASE_URL' as the port where your ajuda-mundo-api (see on the repo) is running
 
 <br>
 
-### 4. create a ```.env.db``` using the ```.env.db.example``` and your own credentials
-
-<br>
-
-### 5. create a ```.env.prod``` using the ```.env.prod.example``` and your own credentials
-
-<br>
-
-### 6. Run
+### 4. Run
 ```
-yarn build
+yarn dev
 ```
 
 <br>
 
-### 7. You can choose 7.1 or 7.2 way
-
-7.1 run a postgres locally on your machine and then run:
-
-```
-yarn start
-```
-
-OR:
-
-7.2 use docker:
- 
-```
-sudo docker-compose up
-```
+### 5. Open your browser on the port mentioned on the terminal after the command above
 
 <br>
 
