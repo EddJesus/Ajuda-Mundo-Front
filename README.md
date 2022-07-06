@@ -59,12 +59,15 @@ This is designed to have an incentive to normal user wants to solve the tasks th
 
 # Built With
 
-* [express](https://expressjs.com/pt-br/)
+* [react](https://pt-br.reactjs.org/)
+* [vite](https://vitejs.dev/)
 * [typescript](https://www.typescriptlang.org/)
-* [postgres](https://www.postgresql.org/)
-* [typeorm](https://typeorm.io/)
-* [docker](https://www.docker.com/)
-* [ts-node-dev](https://www.npmjs.com/package/ts-node-dev)
+* [react-hook-form](https://react-hook-form.com/)
+* [react-router](https://v5.reactrouter.com/web/guides/quick-start)
+* [styled-components](https://styled-components.com/)
+* [axios](https://axios-http.com/ptbr/docs/intro)
+* [eslint](https://eslint.org/)
+* [prettier](https://prettier.io/)
 
 <br><br>
 
