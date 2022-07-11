@@ -6,7 +6,10 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
 
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    @font-face {
+      font-family: 'Poppins';
+      src: url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+    }
     font-family: 'Poppins', sans-serif;
   }
 
