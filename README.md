@@ -72,8 +72,6 @@ This is designed to have an incentive to normal user wants to solve the tasks th
 
 # Running at
 
-**OBS: THE HTML ON THE PRODUCTION BUILD IS BROKEN. I'LL FIX IT SOON. SORRY**
-
 [https://ajuda-mundo-front.vercel.app/](https://ajuda-mundo-front.vercel.app/)
 
 <br><br>
